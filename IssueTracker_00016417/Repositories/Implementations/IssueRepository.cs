@@ -15,10 +15,6 @@ namespace IssueTracker_00016417.Repositories.Implementations
 
         public void CreateIssue(Issue issue)
         {
-            var issueCategory = _context.Categories.Find(issue.CategoryId);
-            var issueDeveloper = _context.Developers.Find(issue.DeveloperId);
-            issue.Developer = issueDeveloper;
-            issue.Category = issueCategory;
             _context.Issues.Add(issue);
             _context.SaveChanges();
         }
@@ -44,6 +40,7 @@ namespace IssueTracker_00016417.Repositories.Implementations
             var foundIssue = GetIssue(id);
             if (foundIssue != null)
             {
+                issue.Id = id;
                 _context.Issues.Remove(foundIssue);
                 _context.Issues.Add(issue);
                 _context.SaveChanges();
