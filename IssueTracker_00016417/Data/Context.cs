@@ -15,6 +15,8 @@ namespace IssueTracker_00016417.Data
         {
             modelBuilder.Entity<Issue>().HasOne(i => i.Developer).WithMany(d => d.Issues).HasForeignKey(i => i.DeveloperId);
             modelBuilder.Entity<Issue>().HasOne(i => i.Category).WithMany(c => c.Issues).HasForeignKey(i => i.CategoryId);
+            modelBuilder.Entity<Category>().HasMany(c=>c.Issues).WithOne(i=>i.Category).HasForeignKey(i => i.CategoryId);
+            modelBuilder.Entity<Developer>().HasMany(d=>d.Issues).WithOne(i=>i.Developer).HasForeignKey(i => i.DeveloperId);
         }
     }
 }

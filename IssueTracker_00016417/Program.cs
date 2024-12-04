@@ -1,4 +1,7 @@
 using IssueTracker_00016417.Data;
+using IssueTracker_00016417.Models;
+using IssueTracker_00016417.Repositories.Implementations;
+using IssueTracker_00016417.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +16,8 @@ builder.Services.AddDbContext<Context>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+builder.Services.AddScoped<IRepoIssue, IssueRepository>();
+builder.Services.AddScoped<IRepoCategory, CategoryRepository>();
 
 var app = builder.Build();
 
