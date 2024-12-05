@@ -5,3 +5,6 @@ External resources used in the development of the application:
 - Microsoft.EntityFrameworkCore.SqlServer
 - Microsoft.EntityFrameworkCore.Tools
 - Swashbuckle.AspNetCore
+
+Calculation of the Application theme:
+00016417/20 = 17 (Issue Tracker)
